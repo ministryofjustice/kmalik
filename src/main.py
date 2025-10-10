@@ -1,11 +1,14 @@
 import boto3
 import os
+import time
 from datetime import datetime
 
 # === CONFIGURATION ===
 BUCKET_NAME = 'alpha-everyone'
 OBJECT_KEY = 'kmalik-justice-digital/test/airflow/my-file.txt' 
 REGION_NAME = 'eu-west-1' 
+
+time.sleep(80)
 
 db_name = os.environ.get("DB_NAME")
 if db_name:
@@ -30,6 +33,7 @@ current_time = datetime.utcnow().isoformat()
 verification_number = 123456789
 
 user_name = os.getenv("SECRET_USERNAME")
+print(f"My secret username is: {user_name}")
 
 new_line = f"\nAppended on {current_time} - Verification Code: {verification_number} with user name of {user_name}"
 updated_content = original_content + new_line
