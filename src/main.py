@@ -26,7 +26,7 @@ print("Original Content:")
 print(original_content)
 
 # === STEP 2: APPEND VERIFIABLE CONTENT ===
-current_time = datetime.isoformat()
+current_time = datetime.utcnow().isoformat()
 verification_number = 123456789
 
 user_name = os.getenv("SECRET_USERNAME")
